@@ -50,7 +50,7 @@ public abstract class Manager_charact_phu : MonoBehaviour
         dir.Normalize();
         animator.SetBool("IsMoving", dir.magnitude > 0);
 
-        GetComponent<Rigidbody2D>().velocity = speed * dir;
+        GetComponent<Rigidbody2D>().velocity = _speed_move * dir;
     }
 
 }

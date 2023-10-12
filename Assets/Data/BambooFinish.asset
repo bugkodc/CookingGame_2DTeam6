@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81d4d65672a78294da7a9624f8063022, type: 3}
+  m_Name: BambooFinish
+  m_EditorClassIdentifier: 
+  nameDish: Bamboo Hoang De Finish
+  timeCook: 5
+  hasCook: 0
+  spriteDish: {fileID: 21300000, guid: 6709a1d94f4227f4fbc7b128dc60228f, type: 3}
+  childrentDataDish:
+  - {fileID: 11400000, guid: 977055fb087547846a32c60d5d6c6392, type: 2}
