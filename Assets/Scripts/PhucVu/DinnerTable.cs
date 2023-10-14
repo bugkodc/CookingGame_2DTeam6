@@ -6,10 +6,30 @@ using UnityEngine;
 public class DinnerTable : MonoBehaviour
 {
     [SerializeField] ComboTableChair[] listTable;
+    public DoorOut doorOut;
+    public Door door;
     public BowlTray bowlTray;
     public Menu menu;
-    
 
+    private void Start()
+    {
+        if(doorOut == null)
+        {
+            doorOut = FindObjectOfType<DoorOut>();
+        }
+        if(door == null)
+        {
+            door = FindObjectOfType<Door>();
+        }
+        if(bowlTray == null)
+        {
+            bowlTray = FindObjectOfType<BowlTray>();
+        }
+        if(menu == null)
+        {
+            menu = FindObjectOfType<Menu>();
+        }
+    }
     public bool CheckEmptyTable()
     {
         foreach (ComboTableChair combo in listTable)

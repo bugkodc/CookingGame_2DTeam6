@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameDish: Bamboo Hoang De Finish
   timeCook: 5
+  timeEat: 3
   hasCook: 0
   spriteDish: {fileID: 21300000, guid: 6709a1d94f4227f4fbc7b128dc60228f, type: 3}
   childrentDataDish:
