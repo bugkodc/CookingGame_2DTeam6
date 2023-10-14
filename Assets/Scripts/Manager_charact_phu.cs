@@ -35,16 +35,7 @@ public abstract class Manager_charact_phu : MonoBehaviour
     protected void Level()
     {
 
-<<<<<<< HEAD
 
-        GetComponent<Rigidbody2D>().velocity = _speed_move * dir;
-
-=======
-        //dir.Normalize();
-        //animator.SetBool("IsMoving", dir.magnitude > 0);
-
-        //GetComponent<Rigidbody2D>().velocity = _speed_move * dir;
->>>>>>> 137b707 (fix bug)
     }
 
 }
