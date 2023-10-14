@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Table : MonoBehaviour
 {
-    DataDish orderFoodCustomer;
+    [SerializeField] DataDish orderFoodCustomer;
     bool hasDish = false;
     public bool HasDish { get { return hasDish; } }
     ComboTableChair comboTableChair;
@@ -16,16 +16,19 @@ public class Table : MonoBehaviour
     {
         orderFoodCustomer = orderFood;
     }
-    public void CheckServeFood(DataDish serveFood)
+    public bool CheckServeFood(DataDish serveFood)
     {
-        if (orderFoodCustomer == null) return;
+        if (orderFoodCustomer == null) return false;
         if(serveFood == orderFoodCustomer)
         {
             DisPlayFood();
+            return true;
         }
+        return false;
     }
     public void DisPlayFood()
     {
+        if (hasDish == true) return;
         hasDish = true;
         comboTableChair.customerNow.StartEat();
     }
@@ -36,5 +39,6 @@ public class Table : MonoBehaviour
             comboTableChair.dinnerTable.bowlTray.AddBowl();
         }
         hasDish = false;
+        orderFoodCustomer = null;
     }
 }

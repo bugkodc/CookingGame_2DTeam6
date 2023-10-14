@@ -50,6 +50,7 @@ MonoBehaviour:
   dinnerTable: {fileID: 0}
   table: {fileID: 996884430956632763}
   chair: {fileID: 2647532958375279656}
+  customerNow: {fileID: 0}
 --- !u!1 &1390129012414614160
 GameObject:
   m_ObjectHideFlags: 0
@@ -60,9 +61,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3821902279822171128}
   - component: {fileID: 996884430956632763}
+  - component: {fileID: 5966704964371797019}
   m_Layer: 0
   m_Name: Table
-  m_TagString: Untagged
+  m_TagString: table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,7 +96,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85d9de322ee5ce4449bbfded6b5bbcb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  comboTableChair: {fileID: 0}
+--- !u!61 &5966704964371797019
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390129012414614160}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &5789552327634509634
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,7 +185,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4776d01b50aa9f547991d6870a99339e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  comboTableChair: {fileID: 0}
 --- !u!1 &6400133981543846948
 GameObject:
   m_ObjectHideFlags: 0

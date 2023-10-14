@@ -9,7 +9,7 @@ public class Door : MonoBehaviour
 
     GameObject[] poolCustomer;
     //int poolSizeCustomer;
-    float timeSpawn = 3;
+    [SerializeField] float timeSpawn = 6;
     float countTime = 0;
 
     
@@ -17,6 +17,10 @@ public class Door : MonoBehaviour
     private void Start()
     {
         //poolSizeCustomer = dinnerTable.GetCountCombo();
+        if(dinnerTable == null)
+        {
+            dinnerTable = FindObjectOfType<DinnerTable>();
+        }
         CustomerGoRestaurant();
         
     }
@@ -35,8 +39,5 @@ public class Door : MonoBehaviour
         GameObject Customer = Instantiate(customerPrefab, this.transform);
     }
     
-    public void CustomerOut()
-    {
-        countTime = 0;
-    }
+    
 }
