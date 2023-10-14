@@ -10,7 +10,7 @@ public class ComboTableChair : MonoBehaviour
 
     [SerializeField] Chair chair;
     public Chair getChair { get { return chair; } }
-
+    public Customer customerNow;
     private void Start()
     {
         dinnerTable = gameObject.GetComponentInParent<DinnerTable>();

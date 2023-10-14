@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79088c066ec35e34f911369fedb2e7de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dinnerTable: {fileID: 0}
   table: {fileID: 996884430956632763}
   chair: {fileID: 2647532958375279656}
 --- !u!1 &1390129012414614160
@@ -93,6 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85d9de322ee5ce4449bbfded6b5bbcb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  comboTableChair: {fileID: 0}
 --- !u!1 &5789552327634509634
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,6 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4776d01b50aa9f547991d6870a99339e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  comboTableChair: {fileID: 0}
 --- !u!1 &6400133981543846948
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,7 +214,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3f270a71c2ea55b4aae6b544b14ffd84, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.70180297, g: 0.8962264, b: 0.5044796, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

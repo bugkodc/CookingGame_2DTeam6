@@ -6,7 +6,7 @@ public class Chair : MonoBehaviour
 {
     bool hasCustomer = false;
     public bool HasCustomer { get { return hasCustomer; }  }
-    [SerializeField] ComboTableChair comboTableChair;
+    ComboTableChair comboTableChair;
     private void Start()
     {
         comboTableChair = GetComponentInParent<ComboTableChair>();

@@ -7,6 +7,7 @@ public class DinnerTable : MonoBehaviour
 {
     [SerializeField] ComboTableChair[] listTable;
     public BowlTray bowlTray;
+    public Menu menu;
     
 
     public bool CheckEmptyTable()
