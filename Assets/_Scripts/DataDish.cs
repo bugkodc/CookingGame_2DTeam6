@@ -11,12 +11,14 @@ public class DataDish : ScriptableObject
     [SerializeField] float timeEat;
     [SerializeField] bool hasCook;
     [SerializeField] Sprite spriteDish;
+    [SerializeField] Image imgDish;
     [SerializeField] DataDish[] childrentDataDish;
 
     public string Name { get { return nameDish; } }
     public float TimeCook { get { return timeCook; } }
     public float TimeEat { get { return timeEat; } }
     public bool HasCook { get { return hasCook;} }
-    public Sprite ImgDish { get { return spriteDish; } }
+    public Sprite SpriteDish { get { return spriteDish; } }
+    public Image ImgDish { get { return imgDish; } }
     public DataDish[] ChildrentDataDish { get {  return childrentDataDish; } }
 }
