@@ -59,6 +59,7 @@ MonoBehaviour:
   door: {fileID: 0}
   bowlTray: {fileID: 0}
   menu: {fileID: 0}
+  vote: {fileID: 0}
 --- !u!1001 &4329328530330107685
 PrefabInstance:
   m_ObjectHideFlags: 0

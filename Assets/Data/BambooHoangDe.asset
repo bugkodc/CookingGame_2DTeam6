@@ -17,4 +17,5 @@ MonoBehaviour:
   timeEat: 4
   hasCook: 0
   spriteDish: {fileID: 21300000, guid: 6ec01466f3711ff4098d463c8e6db394, type: 3}
+  imgDish: {fileID: 5518488311506186988, guid: d2f47de1c79296c4abf5e7de5ded1df7, type: 3}
   childrentDataDish: []

@@ -16,7 +16,7 @@ public class Dish : MonoBehaviour
     {
         if (spriteRenderer != null)
         {
-            spriteRenderer.sprite = DataDish.ImgDish;
+            spriteRenderer.sprite = DataDish.SpriteDish;
         }
     }
 }

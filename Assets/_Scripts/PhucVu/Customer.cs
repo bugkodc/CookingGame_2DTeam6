@@ -6,8 +6,9 @@ using System;
 
 public class Customer : MonoBehaviour
 {
+    [SerializeField] UICharacter uiCharacter;
     [SerializeField] DinnerTable dinnerTable;
-    [SerializeField] SpriteRenderer spriteDishOrder;
+    //[SerializeField] SpriteRenderer spriteDishOrder;
     //Thời gian chờ món ăn
     float timeWait;
     float countTimeWait = 0;
@@ -21,14 +22,18 @@ public class Customer : MonoBehaviour
     //Có món ăn chưa ?
     bool hasFood = false;
     bool isMoving = false;
+
     //Món ăn order
     DataDish orderFood;
-
+    StatusCustomer statusCustomer;
     ComboTableChair comboTableChair;
 
     private void OnEnable()
     {
+        if(dinnerTable==null)
         dinnerTable = FindObjectOfType<DinnerTable>();
+        if(uiCharacter==null)
+        uiCharacter = FindObjectOfType<UICharacter>();
         EnterRestaurant();
     }
     void EnterRestaurant()
@@ -43,11 +48,17 @@ public class Customer : MonoBehaviour
             comboTableChair.customerNow = this;
             comboTableChair.getChair.CustomerSitDown();
         }
+        SetUpUiStatus();
         if (!isMoving)
         {
             Vector3 chairEmpty = comboTableChair.getChair.gameObject.transform.position;
             StartCoroutine(GoingtoTableCoroutine(chairEmpty));
         }
+    }
+    void SetUpUiStatus()
+    {
+        statusCustomer = uiCharacter.getUIStatus();
+        statusCustomer.followCustomer(this);
     }
     private IEnumerator GoingtoTableCoroutine(Vector3 targetPosition)
     {
@@ -63,7 +74,7 @@ public class Customer : MonoBehaviour
     void SitDown()
     {
         hasFood = false;
-        timeWait = UnityEngine.Random.Range(5f, 15f);
+        timeWait = UnityEngine.Random.Range(20f, 30f);
         ThinkOrder();
     }
     void ThinkOrder()
@@ -84,8 +95,9 @@ public class Customer : MonoBehaviour
     void Order()
     {
         timeEat = orderFood.TimeEat;
-        spriteDishOrder.sprite = orderFood.ImgDish;
+        statusCustomer.Order(orderFood.ImgDish);
         comboTableChair.getTable.SetOrderFoodCustomer(orderFood);
+        statusCustomer.OnWaiting();
         StartCoroutine(WaitingCoroutine());
     }
     IEnumerator WaitingCoroutine()
@@ -95,8 +107,10 @@ public class Customer : MonoBehaviour
         while (!hasFood)
         {
             countTimeWait += Time.deltaTime;
+            statusCustomer.UpdateSliderWaiting(1 - countTimeWait / timeWait);
             if (countTimeWait >= timeWait)
             {
+                VoteZeroStar();
                 StandUp();
                 yield break; // Kết thúc coroutine sau khi gọi StandUp
             }
@@ -106,7 +120,8 @@ public class Customer : MonoBehaviour
     public void StartEat()
     {
         hasFood = true;
-        spriteDishOrder.sprite = null;
+        //spriteDishOrder.sprite = null;
+        statusCustomer.OnEating();
         StartCoroutine(EatingCoroutine());
     }
     IEnumerator EatingCoroutine()
@@ -119,6 +134,7 @@ public class Customer : MonoBehaviour
         while (hasFood)
         {
             countTimeEat += Time.deltaTime;
+            statusCustomer.UpdateSliderEating(countTimeEat / timeEat);
             if (countTimeEat >= timeEat)
             {
                 FinishEat();
@@ -130,12 +146,15 @@ public class Customer : MonoBehaviour
     public void FinishEat()
     {
         hasFood = false;
+        Evalute();
+
         StandUp();
     }
     void StandUp()
     {
         comboTableChair.getChair.CustomerStandUp();
         comboTableChair.getTable.CleanTable();
+        statusCustomer.StandUp();
 
         //Setup lại thời gian
         countTimeWait = 0;
@@ -158,16 +177,20 @@ public class Customer : MonoBehaviour
     }
     void OutRestaurant()
     {
-        
+        statusCustomer.OutRestaurant();
         gameObject.SetActive(false);
     }
     void Evalute()
     {
-
+        VoteService();
     }
     void VoteService()
     {
-
+        dinnerTable.vote.VoteRestaurant(countTimeWait);
+    }
+    void VoteZeroStar()
+    {
+        dinnerTable.vote.VoteRestaurant(0);
     }
     void PayForFood()
     {
