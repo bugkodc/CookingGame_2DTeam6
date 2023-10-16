@@ -10,6 +10,7 @@ public class DinnerTable : MonoBehaviour
     public Door door;
     public BowlTray bowlTray;
     public Menu menu;
+    public Vote vote;
 
     private void Start()
     {
@@ -29,6 +30,10 @@ public class DinnerTable : MonoBehaviour
         {
             menu = FindObjectOfType<Menu>();
         }
+        if(vote == null)
+        {
+            vote = FindObjectOfType<Vote>();
+        }    
     }
     public bool CheckEmptyTable()
     {
